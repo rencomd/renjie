@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding:0;
+				margin:0;
+			}
+			div {
+				width:200px;
+				height:200px;
+				display:none;
+				background:#ccc;
+			}
+			div:first-of-type {
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<div>aaa</div>
+		<div>bbb</div>
+		<div>ccc</div>
+		<script type="text/javascript">
+			
+			[...document.querySelectorAll("button")].find((x, y) => {
+   				 x['onclick'] = () => {
+    	    [...document.querySelectorAll("div")].find(d => {
+        	    d.style.display = "none"
+     	  	 });
+       		[...document.querySelectorAll("div")][y].style.display = "block"
+   			 }
+			})
+		</script>
+	</body>
+</html>
